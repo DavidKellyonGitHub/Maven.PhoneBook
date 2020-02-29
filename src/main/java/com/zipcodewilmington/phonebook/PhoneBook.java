@@ -33,8 +33,14 @@ public class PhoneBook {
         this.namesNumbers.remove(name);
     }
 
-    public Boolean hasEntry(String name) {
-        return this.namesNumbers.containsKey(name);
+    public Boolean hasEntry(String entry) {
+        if (this.namesNumbers.entrySet().contains(entry)){
+            return true;
+        }
+        for(String entered : namesNumbers.keySet()){
+            return this.namesNumbers.get(entered).contains(entry);
+        }
+        return false;
     }
 
     public List<String> lookup(String name) {
